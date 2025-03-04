@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tugas_figma/tampilanDua.dart'; // Pastikan file ini ada dan benar
+import 'package:tugas_figma/quisView/tampilanDua.dart'; 
 
 void main() {
   runApp(MyApp());
@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
           Positioned.fill(
             child: Image.asset(
               'assets/images/LoginScreen.png',
-              fit: BoxFit.cover, // Agar gambar menyesuaikan ukuran layar
+              fit: BoxFit.cover, 
             ),
           ),
 
@@ -47,8 +47,7 @@ class HomeScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.white,
-                      fontFamily: 'Baloo2',
-                    ),
+                      fontFamily: 'Baloo_2'                 ),
                   ),
                 ),
 
@@ -61,7 +60,7 @@ class HomeScreen extends StatelessWidget {
                     style: TextStyle(color: Colors.white),
                     decoration: InputDecoration(
                       hintText: "John Deh...",
-                      hintStyle: TextStyle(color: Colors.white70, fontSize: 12), // Lebih transparan
+                      hintStyle: TextStyle(color: Colors.white70, fontSize: 12), 
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20),
                         borderSide: BorderSide(
@@ -109,7 +108,6 @@ class HomeScreen extends StatelessWidget {
                       child: Text(
                         'Start',
                         style: TextStyle(
-                          fontFamily: 'Baloo2',
                           fontSize: 24,
                           color: Colors.white,
                         ),

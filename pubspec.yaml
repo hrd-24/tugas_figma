@@ -76,8 +76,8 @@ flutter:
   fonts:
     - family: Baloo_2
       fonts:
-        - asset: assets\fonts\Baloo_2\Baloo2-Regular.ttf
-        - asset: assets\fonts\Baloo_2\Baloo2-Bold.ttf
+        - asset: assets/fonts/Baloo_2/Baloo2-Regular.ttf
+        - asset: assets/fonts/Baloo_2/Baloo2-Bold.ttf
           weight: 700
   #   - family: Trajan Pro
   #     fonts:
