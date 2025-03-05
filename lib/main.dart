@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tugas_figma/quisView/tampilanDua.dart'; 
+import 'package:tugas_figma/quisView/tampilanDua.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,9 +8,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: HomeScreen(),
-    );
+    return MaterialApp(home: HomeScreen());
   }
 }
 
@@ -25,7 +23,7 @@ class HomeScreen extends StatelessWidget {
           Positioned.fill(
             child: Image.asset(
               'assets/images/LoginScreen.png',
-              fit: BoxFit.cover, 
+              fit: BoxFit.cover,
             ),
           ),
 
@@ -35,7 +33,11 @@ class HomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(height: 20),
-                Image.asset('assets/images/Group3.png', width: 160, height: 160),
+                Image.asset(
+                  'assets/images/Group3.png',
+                  width: 160,
+                  height: 160,
+                ),
                 SizedBox(height: 100),
 
                 // Label untuk TextField
@@ -47,7 +49,8 @@ class HomeScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.white,
-                      fontFamily: 'Baloo_2'                 ),
+                      fontFamily: 'Baloo_2',
+                    ),
                   ),
                 ),
 
@@ -60,23 +63,28 @@ class HomeScreen extends StatelessWidget {
                     style: TextStyle(color: Colors.white),
                     decoration: InputDecoration(
                       hintText: "John Deh...",
-                      hintStyle: TextStyle(color: Colors.white70, fontSize: 12), 
+                      hintStyle: TextStyle(color: Colors.white70, fontSize: 12),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20),
                         borderSide: BorderSide(
-                          color: Colors.white.withOpacity(0.5), // Transparan sesuai background
+                          color: Colors.white.withOpacity(
+                            0.5,
+                          ), // Transparan sesuai background
                         ),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20),
                         borderSide: BorderSide(
-                          color: Colors.white.withOpacity(0.5), // Sama seperti di atas
+                          color: Colors.white.withOpacity(
+                            0.5,
+                          ), // Sama seperti di atas
                         ),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20),
                         borderSide: BorderSide(
-                          color: Colors.white, // Saat diklik tetap terlihat jelas
+                          color:
+                              Colors.white, // Saat diklik tetap terlihat jelas
                           width: 2,
                         ),
                       ),
@@ -102,15 +110,14 @@ class HomeScreen extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Tampilandua()),
+                          MaterialPageRoute(
+                            builder: (context) => Tampilandua(),
+                          ),
                         );
                       },
                       child: Text(
                         'Start',
-                        style: TextStyle(
-                          fontSize: 24,
-                          color: Colors.white,
-                        ),
+                        style: TextStyle(fontSize: 24, color: Colors.white),
                       ),
                     ),
                   ),
