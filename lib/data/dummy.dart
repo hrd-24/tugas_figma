@@ -1,0 +1,40 @@
+import 'package:tugas_figma/model/question.dart';
+
+List<Question> list=[
+  Question(pertanyaan: 'Tahun berapa?', 
+  kj: 1, 
+  pg: ['2000','2020','2022','2001']),
+  Question(pertanyaan: 'Tahun berapa?', 
+  kj: 1, 
+  pg: ['2000','2020','2022','2001']),
+  Question(pertanyaan: 'Tahun berapa?', 
+  kj: 1, 
+  pg: ['2000','2020','2022','2001']),
+  Question(pertanyaan: 'Tahun berapa?', 
+  kj: 1, 
+  pg: ['2000','2020','2022','2001']),
+  Question(pertanyaan: 'Tahun berapa?', 
+  kj: 1, 
+  pg: ['2000','2020','2022','2001']),
+  Question(pertanyaan: 'Tahun berapa?', 
+  kj: 1, 
+  pg: ['2000','2020','2022','2001']),
+  Question(pertanyaan: 'Tahun berapa?', 
+  kj: 1, 
+  pg: ['2000','2020','2022','2001']),
+  Question(pertanyaan: 'Tahun berapa?', 
+  kj: 1, 
+  pg: ['2000','2020','2022','2001']),
+  Question(pertanyaan: 'Tahun berapa?', 
+  kj: 1, 
+  pg: ['2000','2020','2022','2001']),
+  Question(pertanyaan: 'Tahun berapa?', 
+  kj: 1, 
+  pg: ['2000','2020','2022','2001']),
+  Question(pertanyaan: 'Tahun berapa?', 
+  kj: 1, 
+  pg: ['2000','2020','2022','2001']),
+
+
+
+];

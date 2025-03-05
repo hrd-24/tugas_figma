@@ -117,7 +117,7 @@ class _TampilanduaState extends State<Tampilandua> {
 
               SizedBox(height: 50),
 
-              SingleChildScrollView(
+              SizedBox(
                 child: Column(
                   children: [
                     for (int i = 0; i < years.length; i++)
