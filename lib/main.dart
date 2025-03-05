@@ -1,204 +1,131 @@
-import 'dart:math';
+import 'package:flutter/material.dart'; 
+import 'package:tugas_figma/quis_view/tampilanDua.dart';
 
-import 'package:flutter/material.dart';
-
-class Tampilandua extends StatefulWidget {
-  @override
-  _TampilanduaState createState() => _TampilanduaState();
+void main() {
+  runApp(MyApp());
 }
 
-class _TampilanduaState extends State<Tampilandua> {
-  int? selectedYear;
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(home: HomeScreen());
+  }
+}
 
-  List<int> years = [2000, 2025, 2023, 2024]; // List tahun
+class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(height: 12),
-              Row(
-                children: [
-                  Expanded(
-                    child: GestureDetector (
-                        onTap: () {
-                            Navigator.pop(context);
-                          },
-                      child: Row(
-                        children: [
-                          Icon(Icons.arrow_back_ios),
-                          Text('Previous'),
-                        ],
-                      ),
-                    ),
-                  ),
-
-                  Text(
-                    '7/10',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                  Spacer(),
-                ],
-              ),
-              SizedBox(height: 50),
-
-              SizedBox(
-                child: Stack(
-                  alignment: Alignment.center,
-                  clipBehavior: Clip.none, // Agar elemen bisa keluar dari Stack
-                  children: [
-                    // Kotak Pertanyaan
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Container(
-                        width: double.infinity,
-                        height: 229,
-                        padding: EdgeInsets.all(20),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.15),
-                              spreadRadius: -10,
-                              blurRadius: 50,
-                              offset: Offset(0, 20),
-                            ),
-                          ],
-                        ),
-                        child: Center(
-                          child: Text(
-                            'Tahun berapa saat ini?',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    // Timer di atas kotak (setengahnya masuk ke dalam kotak)
-                    Positioned(
-                      top: -40, // Posisikan di atas kotak
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          // Progress Indicator
-                          SizedBox(
-                            width: 60,
-                            height: 60,
-                            child: CircularProgressIndicator(
-                              strokeCap: StrokeCap.round,
-                              value: 0.5, // Ubah nilai ini sesuai timer
-                              backgroundColor: Color(0xFFABD1C6),
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                Color(0xFF004643),
-                              ),
-                              strokeWidth: 8.0, // Ketebalan
-                            ),
-                          ),
-                          // Angka timer di tengah
-                          Text(
-                            '30',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
-              SizedBox(height: 50),
-
-              SingleChildScrollView(
-                child: Column(
-                  children: [
-                    for (int i = 0; i < years.length; i++)
-                      Container(
-                        margin: EdgeInsets.symmetric(
-                          vertical: 4,
-                          horizontal: 20,
-                        ), // Jarak antar pilihan
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(
-                            20,
-                          ), // Border radius
-                          border: Border.all(
-                            color: Colors.white,
-                            width: 1,
-                          ), // Garis border
-                          color:
-                              selectedYear == years[i]
-                                  ? Color(0xFFABD1C6)
-                                  : Colors
-                                      .white, // Warna latar belakang berubah jika dipilih
-                        ),
-                        child: ListTile(
-                          title: Text('${years[i]}'),
-                          trailing: Checkbox(
-                            value: selectedYear == years[i],
-                            onChanged: (bool? value) {
-                              setState(() {
-                                selectedYear = years[i];
-                              });
-                            },
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(24),
-                            ),
-                            activeColor: Color(
-                              0xFF004643,
-                            ), // Warna latar belakang checkbox saat dipilih
-                            checkColor:
-                                Colors.white, // Warna centang sesuai kode hex
-                          ),
-                          onTap: () {
-                            setState(() {
-                              selectedYear = years[i];
-                            });
-                          },
-                        ),
-                      ),
-                  ],
-                ),
-              ),
-
-              SizedBox(height: 20),
-
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF004643),
-                      padding: EdgeInsets.symmetric(vertical: 15),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Tampilandua()),
-                      );
-                    },
-                    child: Text(
-                      'Next',
-                      style: TextStyle(fontSize: 24, color: Colors.white),
-                    ),
-                  ),
-                ),
-              ),
-            ],
+      resizeToAvoidBottomInset: false,
+      body: Stack(
+        children: [
+          // Background Image
+          Positioned.fill(
+            child: Image.asset(
+              'assets/images/LoginScreen.png',
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
+
+          // Konten di atas background
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(height: 20),
+                Image.asset(
+                  'assets/images/Group3.png',
+                  width: 160,
+                  height: 160,
+                ),
+                SizedBox(height: 100),
+
+                // Label untuk TextField
+                Container(
+                  alignment: Alignment.centerLeft,
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Text(
+                    'Enter your name',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                      fontFamily: 'Baloo_2',
+                    ),
+                  ),
+                ),
+
+                SizedBox(height: 10),
+
+                // TextField tanpa background solid
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: TextField(
+                    style: TextStyle(color: Colors.white),
+                    decoration: InputDecoration(
+                      hintText: "John Deh...",
+                      hintStyle: TextStyle(color: Colors.white70, fontSize: 12),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(
+                          color: Colors.white.withOpacity(
+                            0.5,
+                          ), // Transparan sesuai background
+                        ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(
+                          color: Colors.white.withOpacity(
+                            0.5,
+                          ), // Sama seperti di atas
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(
+                          color:
+                              Colors.white, // Saat diklik tetap terlihat jelas
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+
+                SizedBox(height: 200),
+
+                // Tombol Navigasi ke Tampilandua dengan ukuran sama seperti TextField
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFFF8C660),
+                        padding: EdgeInsets.symmetric(vertical: 15),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Tampilandua(),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        'Start',
+                        style: TextStyle(fontSize: 24, color: Colors.white),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
